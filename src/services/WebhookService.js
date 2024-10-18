@@ -1,6 +1,6 @@
 import axios from 'axios';
 const apiClient = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://149.18.103.156', // A URL base pode vir de uma variável de ambiente
+  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://149.18.103.156/api', // A URL base pode vir de uma variável de ambiente
 });
 
 const webhookService = {

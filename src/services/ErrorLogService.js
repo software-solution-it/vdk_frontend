@@ -2,7 +2,7 @@ import axios from 'axios';
 import { TokenService } from './TokenService';
 
 const apiClient = axios.create({
-    baseURL: process.env.REACT_APP_API_BASE_URL || 'http://149.18.103.156',
+    baseURL: process.env.REACT_APP_API_BASE_URL || 'http://149.18.103.156/api',
   });
   
 
