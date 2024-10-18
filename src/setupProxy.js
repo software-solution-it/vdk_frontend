@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/email',
     createProxyMiddleware({
-      target: 'http://149.18.103.156/api',
+      target: 'http://149.18.103.156:4004',
       changeOrigin: true,
     })
   );
