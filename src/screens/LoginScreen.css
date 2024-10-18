@@ -1,0 +1,94 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end; /* Alinhando o card à direita */
+    align-items: center;
+    background-image:
+    radial-gradient(100.27% 85.1% at 100% 50%, rgba(6, 103, 214, 0.80) 41.9%, rgba(3, 54, 112, 0.00) 100%),
+    url('../assets/background_login.jpeg'); /* Substitua pelo caminho correto da sua imagem */
+    background-size: cover;
+    background-position: center;
+    padding-right: 2rem;
+  }
+
+.login-card {
+  width: 100%;
+  max-width: 450px; /* Ajustando largura máxima */
+  height: 600px !important;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Alinha todo o conteúdo à esquerda */
+  width: '100%';
+}
+
+.image{
+    width: '100%';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body img {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.card-body h5 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  align-self: flex-start; /* Alinha o título Login à esquerda */
+}
+
+.card-body form {
+  width: 100%;
+}
+
+.card-body input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+a.link-primary {
+  text-decoration: none;
+  color: #0069d9;
+  align-self: flex-start; /* Alinha o link Esqueci minha senha à esquerda */
+}
+
+a.link-primary:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+button.btn {
+  height: 45px;
+  font-weight: bold;
+}
+
+button.btn-outline-primary {
+  color: #0069d9;
+  border-color: #0069d9;
+}
+
+button.btn-outline-primary:hover {
+  background-color: #0069d9;
+  color: #fff;
+}
