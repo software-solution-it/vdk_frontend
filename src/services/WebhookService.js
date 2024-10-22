@@ -1,17 +1,32 @@
 import axios from 'axios';
-const apiClient = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://149.18.103.156:4004', // A URL base pode vir de uma variável de ambiente
-});
+import { TokenService } from './TokenService'; // Importando o TokenService para obter o token de autenticação
 
 const webhookService = {
   registerWebhook: async (webhookData) => {
-    const response = await apiClient.post('/webhook/register', webhookData);
+    const token = TokenService.getToken(); // Obtém o token de autenticação
+
+    const response = await axios.post('/api/webhook/register', webhookData, {
+      headers: {
+        Authorization: `Bearer ${token}`, // Adiciona o Bearer token
+        'Content-Type': 'application/json', // Define o tipo de conteúdo como JSON
+      }
+    });
     return response.data;
   },
 
   getList: async (userId) => {
+    const token = TokenService.getToken(); // Obtém o token de autenticação
+    
     try {
-      const response = await apiClient.get(`/webhook/list?user_id=${userId}`);
+      const response = await axios.get(`/api/webhook/list`, {
+        params: {
+          user_id: userId, // Passa o userId como parâmetro
+        },
+        headers: {
+          Authorization: `Bearer ${token}`, // Adiciona o Bearer token
+          'Content-Type': 'application/json', // Define o tipo de conteúdo como JSON
+        }
+      });
       return response.data; 
     } catch (error) {
       console.error("Error fetching webhooks:", error);

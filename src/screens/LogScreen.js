@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Card, Button, Alert } from 'antd';
+import { Layout, Alert } from 'antd';
+import { useNavigate } from 'react-router-dom'; // Importando useNavigate
 import errorLogService from '../services/ErrorLogService';
 
 const { Content } = Layout;
@@ -8,6 +9,7 @@ const LogScreen = () => {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Inicializando o hook useNavigate
 
   useEffect(() => {
     const fetchLogs = async () => {
@@ -16,13 +18,14 @@ const LogScreen = () => {
         setLogs(response);
       } catch (err) {
         setError('Failed to fetch logs.');
+        navigate('/login'); // Redireciona para /login se ocorrer um erro
       } finally {
         setLoading(false);
       }
     };
 
     fetchLogs();
-  }, []);
+  }, [navigate]); // Incluindo 'navigate' como dependência do useEffect
 
   if (loading) {
     return <div>Loading logs...</div>;

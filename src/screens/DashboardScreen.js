@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Layout, DatePicker, Dropdown, Button, Card, Checkbox, Menu, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import {
   LineChart,
   Line,
@@ -24,6 +25,7 @@ const { Search } = Input;
 moment.locale('pt-br');
 
 const Dashboard = () => {
+  const navigate = useNavigate(); 
   const [collapsed, setCollapsed] = useState(false);
   const [emails, setEmails] = useState([]);
   const [metrics, setMetrics] = useState([
@@ -46,11 +48,12 @@ const Dashboard = () => {
         setEmails(data);
       } catch (error) {
         console.error('Erro ao buscar e-mails:', error);
+        navigate('/login');
       }
     };
 
     fetchEmails();
-  }, []);
+  }, [navigate]);
 
   // Filtrar e-mails
   const filteredEmails = useMemo(() => {
@@ -227,7 +230,6 @@ const Dashboard = () => {
       <Layout>
         <Content style={{ padding: '16px' }}>
           <div className="dashboard-grid">
-            {/* Seção "Tempo da análise" */}
             <div className="date-range-section">
               <h2>Tempo da análise</h2>
               <RangePicker

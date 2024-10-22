@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'; 
-import { Layout, Table } from 'antd';
+import { Layout, Table, message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import userService from '../services/UserService';
 
 const { Content } = Layout;
 
 const Acessos = () => {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [navigate]);
 
-  // Função para buscar a lista de usuários
   const fetchUsers = async () => {
     try {
       const data = await userService.getUserById();
@@ -19,10 +20,10 @@ const Acessos = () => {
       setUsers(usersData);
     } catch (error) {
       console.error('Erro ao buscar usuários:', error);
+      navigate('/login'); 
     }
   };
 
-  // Definição das colunas da tabela
   const columns = [
     {
       title: 'Nome',
@@ -36,7 +37,7 @@ const Acessos = () => {
     },
     {
       title: 'Permissão',
-      dataIndex: 'role_name', // Campo role_name
+      dataIndex: 'role_name',
       key: 'role_name',
     },
   ];

@@ -2,10 +2,13 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    '/email',
+    '/api',
     createProxyMiddleware({
-      target: 'http://149.18.103.156:4004',
+      target: 'http://localhost:8000',  // O backend rodando na porta 8000
       changeOrigin: true,
+      pathRewrite: {
+        '^/api': '',  // Remove o /api do caminho antes de redirecionar
+      },
     })
   );
 };
