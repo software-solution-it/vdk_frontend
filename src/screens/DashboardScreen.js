@@ -84,7 +84,6 @@ const Dashboard = () => {
     });
   }, [emails, titleFilter, senderFilter, dateRange]);
 
-  // Atualizar métricas e dados do gráfico quando os e-mails filtrados mudarem
   useEffect(() => {
     updateMetrics(filteredEmails);
     prepareChartData(filteredEmails);
@@ -129,9 +128,9 @@ const Dashboard = () => {
         acc[day].total += 1;
         acc[day].read += email.is_read === 1 ? 1 : 0;
         acc[day].unread += email.is_read === 0 ? 1 : 0;
-        acc[day].opened += email.is_opened === 1 ? 1 : 0; // Certifique-se de que essa propriedade existe
-        acc[day].spam += email.is_spam === 1 ? 1 : 0;     // Certifique-se de que essa propriedade existe
-        acc[day].deleted += email.is_deleted === 1 ? 1 : 0; // Certifique-se de que essa propriedade existe
+        acc[day].opened += email.is_opened === 1 ? 1 : 0; 
+        acc[day].spam += email.is_spam === 1 ? 1 : 0;    
+        acc[day].deleted += email.is_deleted === 1 ? 1 : 0; 
       }
 
       return acc;
@@ -147,7 +146,6 @@ const Dashboard = () => {
     setEmailData(chartData);
   };
 
-  // Componente de tooltip personalizado para o gráfico geral
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
@@ -185,7 +183,7 @@ const Dashboard = () => {
     return null;
   };
 
-  // Novo componente de tooltip para o gráfico de spam
+
   const SpamTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
@@ -285,7 +283,6 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* Cartões de Métricas */}
             <div className="metrics-section">
               {metrics.map((metric) => (
                 <Card
@@ -305,7 +302,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Filtros */}
+
           <div className="filters-section" style={{ marginTop: 16 }}>
             <Search
               placeholder="Filtrar por título"
@@ -319,7 +316,6 @@ const Dashboard = () => {
             />
           </div>
 
-          {/* Tabela de E-mails */}
           <EmailTable emails={filteredEmails} />
         </Content>
       </Layout>

@@ -1,5 +1,3 @@
-// src/services/TokenService.js
-
 export const TokenService = {
   getToken: () => {
     return localStorage.getItem('token');
@@ -18,7 +16,7 @@ export const TokenService = {
     if (!token) return false;
 
     const { exp } = JSON.parse(atob(token.split('.')[1]));
-    return exp * 1000 > Date.now(); // Verifica se o token expirou
+    return exp * 1000 > Date.now(); 
   },
 
   getUserId: () => {
@@ -27,10 +25,14 @@ export const TokenService = {
 
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload.data.id; // Ajuste conforme a estrutura do seu token
+      return payload.data.id; 
     } catch (error) {
       console.error('Erro ao decodificar o token:', error);
       return null;
     }
+  },
+
+  clearSession: () => {
+    localStorage.clear();
   },
 };

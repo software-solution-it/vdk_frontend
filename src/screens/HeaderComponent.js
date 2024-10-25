@@ -12,8 +12,8 @@ const HeaderComponent = () => {
         padding: '0 20px',  
         width: '100%', 
         display: 'flex', 
-        justifyContent: 'center',  // Centraliza horizontalmente
-        alignItems: 'center'  // Centraliza verticalmente
+        justifyContent: 'center',  
+        alignItems: 'center' 
       }}
     >
       <img src={SmallLogo} alt="Logo" style={{ height: 40 }} />

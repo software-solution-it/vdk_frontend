@@ -7,7 +7,7 @@ import './Menu.css'
 const { Sider } = Layout;
 
 const MenuComponent = () => {
-    const [collapsed, setCollapsed] = useState(false); // Controla o estado colapsado
+    const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -15,7 +15,7 @@ const MenuComponent = () => {
         navigate('/login');
     };
 
-    // Alterna o estado do menu entre colapsado e expandido
+
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
     };
@@ -25,11 +25,11 @@ const MenuComponent = () => {
             collapsible
             collapsed={collapsed}
             width={250}
-            trigger={null} // Remove o trigger padrão
+            trigger={null} 
             style={{ zIndex: 1 }}
         >
 
-            {/* Botão para colapsar/expandir o menu */}
+
 
             <Menu style={{padding:20}} theme="dark" defaultSelectedKeys={['1']} mode="inline">
                 <Tooltip title={collapsed ? 'Home' : ''} placement="right">

@@ -9,8 +9,8 @@ const userService = {
 
     const response = await axios.get(`/api/user/get?id=${id}`, {
       headers: {
-        'Authorization': `Bearer ${token}`, // Adicionando o Bearer token
-        'Content-Type': 'application/json', // Opcional, define o tipo de conteúdo
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
       }
     });
     
@@ -22,8 +22,8 @@ const userService = {
 
     const response = await axios.get(`/api/user/check-access?id=${id}`, {
       headers: {
-        'Authorization': `Bearer ${token}`, // Adicionando o Bearer token
-        'Content-Type': 'application/json', // Opcional, define o tipo de conteúdo
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
       }
     });
     

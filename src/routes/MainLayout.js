@@ -17,7 +17,6 @@ const MainLayout = () => {
         <HeaderComponent />
 
         <Content style={{ padding: '16px' }}>
-          {/* O Outlet renderiza o componente da rota atual */}
           <Outlet />
         </Content>
       </Layout>

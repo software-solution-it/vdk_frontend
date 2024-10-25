@@ -11,12 +11,11 @@ const AddEmailBox = () => {
 
   const onFinish = (values) => {
     console.log('Form Values: ', values);
-    // Lógica para salvar os dados da caixa de e-mail
-    navigate('/mailbox'); // Redireciona de volta para a lista de e-mails após o cadastro
+    navigate('/mailbox'); 
   };
 
   const handleCancel = () => {
-    navigate('/mailbox'); // Volta para a lista de e-mails sem salvar
+    navigate('/mailbox'); 
   };
 
   return (

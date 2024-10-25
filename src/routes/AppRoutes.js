@@ -7,7 +7,7 @@ import EmailBox from '../screens/EmailBoxes';
 import AddEmailBox from '../screens/AddMailBox';
 import Webhook from '../screens/Webhook';
 import LogScreen from '../screens/LogScreen';
-import MainLayout from './MainLayout'; // Importando o layout persistente
+import MainLayout from './MainLayout'; 
 
 const AppRoutes = () => {
   return (
@@ -22,7 +22,6 @@ const AppRoutes = () => {
           <Route path="log" element={<LogScreen />} />
         </Route>
         
-        {/* Rota de Login que não precisa do layout */}
         <Route path="/login" element={<LoginScreen />} />
       </Routes>
     </Router>
