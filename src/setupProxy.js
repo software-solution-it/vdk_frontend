@@ -11,4 +11,12 @@ module.exports = function(app) {
       },
     })
   );
+
+  app.use(
+    '/server',
+    createProxyMiddleware({
+      target: 'http://149.18.103.156/api',
+      changeOrigin: true,
+    })
+  );
 };
