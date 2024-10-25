@@ -29,7 +29,7 @@ const MenuComponent = () => {
             style={{ zIndex: 1 }}
         >
 
-
+Session
 
             <Menu style={{padding:20}} theme="dark" defaultSelectedKeys={['1']} mode="inline">
                 <Tooltip title={collapsed ? 'Home' : ''} placement="right">
